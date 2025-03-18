@@ -34,7 +34,7 @@ const Filter = ({ options, selectedOrbit, onChange, placeholder = "Orbiting Body
   };
   const buttonText = selectedOrbit ? `${placeholder} (${selectedOrbit})` : placeholder;
   const buttonClasses = selectedOrbit
-    ? "bg-blue-600 text-white border-blue-600"  
+    ? "bg-blue-500 text-white border-blue-500"  
     : "bg-white text-gray-700 border-gray-300";
 
   return (

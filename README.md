@@ -2,7 +2,7 @@
 
 ## Description
 
-This React application fetches data from NASA's Near Earth Object Web Service (NeoWs) API and displays it in a chart using Google Charts. The app allows users to filter the data based on certain criteria and provides a table view of the data with a switcher to toggle between the chart and the table.
+This React application fetches data from NASA's Near Earth Object Web Service (NeoWs) API and displays it in a chart using Google Charts. The app allows users to filter the data based on certain criteria and provides a table view of the data with a switcher to toggle between the chart and the table. Additionally, a CSV Download button is available for users to download the displayed data in CSV format.
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@ This React application fetches data from NASA's Near Earth Object Web Service (N
 ## Tech Stack
 
 - **Frontend:** React, TypeScript, Tailwind
-- **State Management:** Redux, Redux-Saga
+- **State Management:** Redux-toolkit, Redux-Saga
 - **API Requests:** Axios
 - **Charting Library:** Google Charts
 
@@ -26,6 +26,12 @@ To get started with the project:
    cd neo-visualizatio
    ```
 1. Install the dependencies:
+
+   ```bash
    npm install
+   ```
+
 1. Start the development server:
+   ```bash
    npm start
+   ```
