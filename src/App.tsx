@@ -1,12 +1,13 @@
 import React from 'react';
+import HomePage from './views/HomePage';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-<h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>  </div>
-
+    <Provider store={store}>
+   <HomePage/>
+</Provider>
   );
 }
 
