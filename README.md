@@ -25,13 +25,19 @@ To get started with the project:
    git clone https://github.com/bochra1/neo-visualization.git
    cd neo-visualizatio
    ```
-1. Install the dependencies:
+2. (Optional) Create the .env File:
+   In the root directory of the project, create a file named .env and add the following line with your NASA API key: as follows:
+   ```bash
+   REACT_APP_NASA_API_KEY=your-nasa-api-key-here
+   ```
+   Note: Replace your-nasa-api-key-here with your actual NASA API key. If you don’t have one, you can obtain it from NASA's API portal.
+3. Install the dependencies:
 
    ```bash
    npm install
    ```
 
-1. Start the development server:
+4. Start the development server:
    ```bash
    npm start
    ```
