@@ -21,7 +21,14 @@ const Chart = ({ data }: ChartProps) => {
         <XAxis type="number" domain={[0, 'dataMax']}>
           <Label value="Min Estimated Diameter (KM)" offset={0} position="insideBottom" />
         </XAxis>
-        <YAxis dataKey="name" type="category" width={200} />
+        <YAxis dataKey="name" type="category" width={200} >
+          <Label
+            value="Neo Name" 
+            angle={-90}
+            position="insideLeft" 
+            dx={2}  
+          />
+        </YAxis>
         <Tooltip />
         <Legend verticalAlign="top" height={30} />
         <Bar dataKey="estimated_diameter_min" fill="#2986cc" name="Min Estimated Diameter (km)" />

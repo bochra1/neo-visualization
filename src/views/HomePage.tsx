@@ -1,15 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Switch, FormControlLabel } from '@mui/material';
 import Chart from '../components/Chart';
 import Filter from '../components/Filter';
 import { fetchAPIRequest } from '../store/visualisation/apiSLice';
 import { RootState } from '../store';
 import { options } from '../utils/options';
+import TableComponent from '../components/TableComponent';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state: RootState) => state.apiData);
   const [selectedOrbit, setSelectedOrbit] = useState('');
+  const [isChartView, setIsChartView] = useState(false);
+
   useEffect(() => {
     dispatch(fetchAPIRequest());
   }, [dispatch]);
@@ -17,6 +21,7 @@ const HomePage = () => {
   const filteredData = selectedOrbit
     ? data.filter((item) => item.orbiting_body.includes(selectedOrbit))
     : data;
+
   if (loading)
     return (
       <div className="flex justify-center items-center h-screen relative">
@@ -32,20 +37,29 @@ const HomePage = () => {
       <div className="absolute top-2 right-2 z-10">
         <Filter options={options} selectedOrbit={selectedOrbit} onChange={setSelectedOrbit} />
       </div>
-  
-      {/* Chart */}
-      {filteredData.length > 0 && (
-        <div
-          className="absolute left-[50px] top-1/2 transform -translate-y-1/2 text-gray-500"
-          style={{ writingMode: "sideways-lr" }}
-        >
-          <span>Neo Name</span>
-        </div>
+
+      {/* Switch Toggle */}
+      <div className="absolute top-2 left-2 z-10">
+        <FormControlLabel
+          control={
+            <Switch
+              checked={isChartView}
+              onChange={() => setIsChartView(!isChartView)}
+              name="viewToggle"
+              color="primary"
+            />
+          }
+          label={isChartView ? 'Switch to Table View' : 'Switch to Chart View'}
+        />
+      </div>
+      {isChartView ? (
+        <Chart data={filteredData} />
+      ) : (
+        <TableComponent data={filteredData} />
       )}
-      <Chart data={filteredData} />
+
     </div>
   );
-  
 };
 
 export default HomePage;

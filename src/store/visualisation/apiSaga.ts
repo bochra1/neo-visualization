@@ -1,8 +1,8 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchApiData } from './api';
-import { NearEarthObject } from './types';
+import { ApiResponse, NearEarthObject } from './types';
 import { fetchAPIFailure, fetchAPIRequest, fetchAPISuccess } from './apiSLice';
-function* fetchAPISaga(): Generator<unknown, void, any> {
+function* fetchAPISaga(): Generator<unknown, void, ApiResponse> {
   try {
     const response = yield call(fetchApiData);
     const formattedData = response.near_earth_objects.map((item: any) => ({
